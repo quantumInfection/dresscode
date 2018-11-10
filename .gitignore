@@ -1,5 +1,4 @@
 app/libs/
-app/src/main/java/
 gradle/wrapper/gradle-wrapper.jar
 /local.properties
 .gradle/
