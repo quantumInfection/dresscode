@@ -1,7 +1,8 @@
-.idea/codeStyles/
-.idea/misc.xml
-.idea/runConfigurations.xml
-.idea/vcs.xml
 app/libs/
 app/src/main/java/
 gradle/wrapper/gradle-wrapper.jar
+/local.properties
+.gradle/
+Dresscode.iml
+app/app.iml
+.idea
