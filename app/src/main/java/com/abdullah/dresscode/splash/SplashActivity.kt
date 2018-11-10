@@ -1,15 +1,19 @@
 package com.abdullah.dresscode.splash
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
 import com.abdullah.dresscode.base.BaseActivity
+import com.abdullah.dresscode.login.LoginActivity
 
 class SplashActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.checkLoginState()
+        Handler().postDelayed({checkLoginState()}, 3000)
     }
 
     private fun checkLoginState() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(this, LoginActivity::class.java)
+        this.startActivity(intent)
     }
 }
