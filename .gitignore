@@ -5,3 +5,5 @@ gradle/wrapper/gradle-wrapper.jar
 Dresscode.iml
 app/app.iml
 .idea
+/app/src/debug/google-services.json
+/app/src/release/google-services.json

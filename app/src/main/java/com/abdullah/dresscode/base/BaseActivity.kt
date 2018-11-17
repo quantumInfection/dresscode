@@ -1,7 +1,7 @@
 package com.abdullah.dresscode.base
 
-import android.app.Activity
+import androidx.fragment.app.FragmentActivity
 
-abstract class BaseActivity : Activity() {
+abstract class BaseActivity : FragmentActivity() {
 
 }
