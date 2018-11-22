@@ -35,6 +35,8 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.1.0-alpha01'
+    implementation 'android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha07'
+    implementation 'android.arch.navigation:navigation-ui-ktx:1.0.0-alpha07'
 
     /* Firebase deps */
     implementation 'com.google.firebase:firebase-core:16.0.5'
