@@ -18,7 +18,7 @@ class LoginHomeFragment : BaseFragment(R.layout.fragment_login_home) {
         }
     }
 
-    lateinit var loginViewModel: LoginViewModel
+    private lateinit var loginViewModel: LoginViewModel
 
     override fun obtainViewModel() {}
 
@@ -26,7 +26,7 @@ class LoginHomeFragment : BaseFragment(R.layout.fragment_login_home) {
 
     override fun initUi(view: View) {
         view.loginButton.setOnClickListener {
-            loginViewModel.setLoginState(LoginViewModel.State.PHONE_ENTRY)
+            loginViewModel.setLoginState(LoginViewModel.State.FIREBASE_UI)
         }
     }
 

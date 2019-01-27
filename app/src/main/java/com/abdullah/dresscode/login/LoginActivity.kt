@@ -7,15 +7,17 @@ import androidx.lifecycle.ViewModelProviders
 import com.abdullah.dresscode.R
 import com.abdullah.dresscode.base.BaseActivity
 import com.abdullah.dresscode.login.loginhome.LoginHomeFragment
-import com.abdullah.dresscode.login.phoneentry.PhoneEntryFragment
+import com.firebase.ui.auth.AuthUI
+import java.util.*
 
 class LoginActivity : BaseActivity() {
 
-    lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: LoginViewModel
+    private val RC_SIGN_IN = 123
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        this.setContentView(R.layout.activity_login)
+        this.setContentView(com.abdullah.dresscode.R.layout.activity_login)
         this.initViewModel()
         if (savedInstanceState == null) {
             viewModel.setLoginState(LoginViewModel.State.LOGIN_HOME)
@@ -32,18 +34,22 @@ class LoginActivity : BaseActivity() {
     }
 
     private fun onLoginStateUpdated(state: LoginViewModel.State) {
-        var fragment: Fragment? = null
         when (state) {
-            LoginViewModel.State.LOGIN_HOME -> fragment = LoginHomeFragment.newInstance()
-            LoginViewModel.State.PHONE_ENTRY -> fragment = PhoneEntryFragment.newInstance()
-            LoginViewModel.State.CODE_ENTRY -> TODO()
-            LoginViewModel.State.VERIFIED -> TODO()
-            LoginViewModel.State.FAILED -> TODO()
+            LoginViewModel.State.LOGIN_HOME -> {
+                this.supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragmentContainer, LoginHomeFragment.newInstance())
+                    .commitNow()
+            }
+            LoginViewModel.State.FIREBASE_UI -> this.openFirebaseUi()
         }
-        fragment.let {
-            this.supportFragmentManager.beginTransaction()
-                .replace(R.id.fragmentContainer, it)
-                .commitNow()
-        }
+    }
+
+    private fun openFirebaseUi() {
+        this.startActivityForResult(
+            AuthUI.getInstance().createSignInIntentBuilder()
+                .setAvailableProviders(Collections.singletonList((AuthUI.IdpConfig.PhoneBuilder().build())))
+                .build(),
+            RC_SIGN_IN
+        );
     }
 }

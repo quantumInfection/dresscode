@@ -18,6 +18,6 @@ class LoginViewModel(application: Application) : BaseViewModel(application) {
     }
 
     enum class State {
-        LOGIN_HOME, PHONE_ENTRY, CODE_ENTRY, VERIFIED, FAILED
+        LOGIN_HOME, FIREBASE_UI
     }
 }
